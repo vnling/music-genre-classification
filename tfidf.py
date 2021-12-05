@@ -19,4 +19,5 @@ def get_tf_idf(lyrics):
     tf_idf = pd.DataFrame(X.toarray() ,columns=cv.get_feature_names_out())
 
     tf_idf_per_song = tf_idf.sum(axis=1)
-    return np.array(tf_idf_per_song)
+    tf_idf_per_song.columns = ["tfidf"]
+    return tf_idf_per_song

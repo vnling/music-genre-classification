@@ -2,6 +2,7 @@ import nltk
 from nltk.tokenize import word_tokenize
 from collections import  defaultdict
 import numpy as np
+import pandas as pd
 
 def get_pos(lyrics):
     pos = []
@@ -15,4 +16,6 @@ def get_pos(lyrics):
             pos_count[tag] += 1
         pos.append(pos_count)
 
-    return np.array(pos)
+    pos_df = pd.DataFrame(pos)
+    pos_df = pos_df.fillna(0)
+    return pos_df
